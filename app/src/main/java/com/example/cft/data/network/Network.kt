@@ -20,8 +20,8 @@ object Network {
 
     private fun getHttpClient(): OkHttpClient {
         val client = OkHttpClient.Builder().apply {
-            connectTimeout(10, TimeUnit.SECONDS)
-            readTimeout(20, TimeUnit.SECONDS)
+            connectTimeout(5, TimeUnit.SECONDS)
+            readTimeout(10, TimeUnit.SECONDS)
             retryOnConnectionFailure(false)
             addInterceptor(MyInterceptor())
             val logLevel = HttpLoggingInterceptor.Level.BODY

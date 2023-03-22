@@ -1,7 +1,7 @@
 package com.example.cft.data.network.binlist
 
 import android.util.Log
-import com.example.cft.data.network.BinResponse
+import com.example.cft.model.Bin
 import com.example.cft.data.network.Network
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -12,9 +12,9 @@ class BinlistRepository {
 
     private val api = Network.getBinlistApi()
 
-    suspend fun getBinlist(bin: Int): Flow<Result<BinResponse>> = flow{
+    suspend fun getBinlist(bin: Int): Flow<Result<Bin>> = flow{
         try {
-            val data = api.GetBin(bin)
+            val data = api.getBin(bin)
             emit(Result.success(data))
         } catch (e: Exception) {
             Log.e("response error", e.message.toString())
