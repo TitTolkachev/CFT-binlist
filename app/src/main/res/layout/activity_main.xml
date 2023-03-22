@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FAFAFA"
     tools:context=".ui.screen.main.view.MainActivity">
 
     <EditText
@@ -21,6 +22,8 @@
         android:maxWidth="200dp"
         android:paddingHorizontal="15dp"
         android:paddingVertical="15dp"
+        android:textColorHint="#A17F7F"
+        android:textCursorDrawable="@drawable/color_cursor"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,12 +51,41 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="60dp"
         android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="#EFEFEF"
         android:overScrollMode="never"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spaceView" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/dark_red"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:paddingVertical="17dp"
+        android:text="@string/clear"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/binHistoryList"
+        tools:ignore="VisualLintButtonSize" />
+
+    <View
+        android:id="@+id/spaceView"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="55dp"
+        android:background="#B5B5B5"
+        android:backgroundTintMode="multiply"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 

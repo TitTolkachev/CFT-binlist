@@ -7,5 +7,5 @@ import retrofit2.http.Path
 interface BinlistApi {
 
     @GET("{bin}")
-    suspend fun getBin(@Path("bin") bin: Int): Bin
+    suspend fun getBin(@Path("bin") bin: String): Bin
 }

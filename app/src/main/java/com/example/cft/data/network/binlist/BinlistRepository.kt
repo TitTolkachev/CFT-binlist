@@ -12,7 +12,7 @@ class BinlistRepository {
 
     private val api = Network.getBinlistApi()
 
-    suspend fun getBinlist(bin: Int): Flow<Result<Bin>> = flow{
+    suspend fun getBinlist(bin: String): Flow<Result<Bin>> = flow{
         try {
             val data = api.getBin(bin)
             emit(Result.success(data))

@@ -9,7 +9,7 @@ import com.example.cft.databinding.ItemBinBinding
 
 class BinHistoryAdapter(private val binItemActionListener: BinItemActionListener) : RecyclerView.Adapter<BinHistoryAdapter.BinHistoryViewHolder>(), View.OnClickListener {
 
-    var data: List<Int> = emptyList()
+    var data: List<String> = emptyList()
         @SuppressLint("NotifyDataSetChanged")
         set(newValue) {
             field = newValue
@@ -22,7 +22,7 @@ class BinHistoryAdapter(private val binItemActionListener: BinItemActionListener
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemBinBinding.inflate(inflater, parent, false)
 
-        binding.root.setOnClickListener(this)
+        binding.textView.setOnClickListener(this)
 
         return BinHistoryViewHolder(binding)
     }
@@ -33,19 +33,19 @@ class BinHistoryAdapter(private val binItemActionListener: BinItemActionListener
 
         val bin = data[position]
 
-        holder.binding.root.tag = bin
+        holder.binding.textView.tag = bin
 
         with(holder.binding) {
-            textView.text = bin.toString()
+            textView.text = bin
         }
     }
 
     override fun onClick(view: View) {
-        val bin: Int = view.tag as Int
+        val bin: String = view.tag as String
         binItemActionListener.onItemClicked(bin)
     }
 }
 
 interface BinItemActionListener {
-    fun onItemClicked(bin: Int)
+    fun onItemClicked(bin: String)
 }

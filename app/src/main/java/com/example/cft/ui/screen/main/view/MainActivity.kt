@@ -25,16 +25,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.button.setOnClickListener {
-            viewModel.findBinInfo(binding.textInput.text.toString().toInt(), this, adapter)
+            viewModel.findBinInfo(binding.textInput.text.toString(), this, adapter)
         }
 
         val linearLayoutManager = LinearLayoutManager(this)
         binding.binHistoryList.layoutManager = linearLayoutManager
 
         adapter = BinHistoryAdapter(object : BinItemActionListener {
-            override fun onItemClicked(bin: Int) = viewModel.findBinInfo(bin, this@MainActivity, adapter)
+            override fun onItemClicked(bin: String) = viewModel.findBinInfo(bin, this@MainActivity, adapter)
         })
-        adapter.data = listOf(45717360, 45717361) // TODO(Сюда прикрутить получение номеров)
+        adapter.data = listOf("45717360", "45717361") // TODO(Сюда прикрутить получение номеров)
         binding.binHistoryList.adapter = adapter
     }
 

@@ -17,7 +17,7 @@ private val binlistRepository = BinlistRepository()
 
 class MainViewModel : ViewModel() {
 
-    fun findBinInfo(bin: Int, ctx: Context, adapter: BinHistoryAdapter) {
+    fun findBinInfo(bin: String, ctx: Context, adapter: BinHistoryAdapter) {
         viewModelScope.launch(Dispatchers.IO) {
             binlistRepository.getBinlist(bin).collect { result ->
                 result.onSuccess {
