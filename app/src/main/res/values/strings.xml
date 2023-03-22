@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CFT</string>
+    <string name="bin">BIN</string>
+    <string name="find_btn_text">Найти</string>
+</resources>
