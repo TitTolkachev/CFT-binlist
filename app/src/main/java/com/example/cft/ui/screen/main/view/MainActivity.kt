@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         adapter = BinHistoryAdapter(object : BinItemActionListener {
             override fun onItemClicked(bin: String) = viewModel.findBinInfo(bin, this@MainActivity, adapter)
         })
-        adapter.data = listOf("45717360", "45717361") // TODO(Сюда прикрутить получение номеров)
+        adapter.data = viewModel.loadBinHistory(this)
         binding.binHistoryList.adapter = adapter
     }
 
