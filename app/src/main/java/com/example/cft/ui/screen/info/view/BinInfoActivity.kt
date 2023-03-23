@@ -56,9 +56,15 @@ class BinInfoActivity : AppCompatActivity() {
         } else if (viewModel.binData.bank.city != null)
             bankName = viewModel.binData.bank.city
 
+        val luhn: String? = when (viewModel.binData.number.luhn) {
+            true -> "Yes"
+            false -> "No"
+            else -> null
+        }
+
         val prepaid: String? = when (viewModel.binData.prepaid) {
-            true -> "YES"
-            false -> "NO"
+            true -> "Yes"
+            false -> "No"
             else -> null
         }
 
@@ -74,7 +80,7 @@ class BinInfoActivity : AppCompatActivity() {
             } else
                 textViewBrand.text = viewModel.binData.brand
             if (viewModel.binData.number.length == null
-                && viewModel.binData.number.luhn == null
+                && luhn == null
             )
                 textViewLabelCardNumber.visibility = View.GONE
             if (viewModel.binData.number.length == null) {
@@ -82,11 +88,11 @@ class BinInfoActivity : AppCompatActivity() {
                 textViewNumberLength.visibility = View.GONE
             } else
                 textViewNumberLength.text = viewModel.binData.number.length.toString()
-            if (viewModel.binData.number.luhn == null) {
+            if (luhn == null) {
                 textViewSubLabelCardNumberLuhn.visibility = View.GONE
                 textViewNumberLuhn.visibility = View.GONE
             } else
-                textViewNumberLuhn.text = viewModel.binData.number.luhn.toString()
+                textViewNumberLuhn.text = luhn
             if (viewModel.binData.type == null) {
                 textViewLabelType.visibility = View.GONE
                 textViewType.visibility = View.GONE
@@ -101,7 +107,7 @@ class BinInfoActivity : AppCompatActivity() {
                 && viewModel.binData.country.name == null
                 && coordinates == null
             )
-                textViewLabelCoutry.visibility = View.GONE
+                textViewLabelCountry.visibility = View.GONE
             if (viewModel.binData.country.emoji == null)
                 textViewEmoji.visibility = View.GONE
             else

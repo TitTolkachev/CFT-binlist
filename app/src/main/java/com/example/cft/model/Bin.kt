@@ -22,7 +22,7 @@ data class BinCountry(
     val numeric: Int? = null,
     val alpha2: String? = null,
     val name: String? = null,
-    val emoji: String? = null, // TODO(Сделать emoji)
+    val emoji: String? = null,
     val currency: String? = null,
     val latitude: Int? = null,
     val longitude: Int? = null
