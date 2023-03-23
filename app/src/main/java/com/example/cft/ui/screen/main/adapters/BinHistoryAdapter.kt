@@ -6,8 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cft.databinding.ItemBinBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-class BinHistoryAdapter(private val binItemActionListener: BinItemActionListener) : RecyclerView.Adapter<BinHistoryAdapter.BinHistoryViewHolder>(), View.OnClickListener {
+class BinHistoryAdapter(private val binItemActionListener: BinItemActionListener) :
+    RecyclerView.Adapter<BinHistoryAdapter.BinHistoryViewHolder>(), View.OnClickListener {
 
     var data: List<String> = emptyList()
         @SuppressLint("NotifyDataSetChanged")
@@ -42,10 +46,12 @@ class BinHistoryAdapter(private val binItemActionListener: BinItemActionListener
 
     override fun onClick(view: View) {
         val bin: String = view.tag as String
-        binItemActionListener.onItemClicked(bin)
+        CoroutineScope(Dispatchers.IO).launch {
+            binItemActionListener.onItemClicked(bin)
+        }
     }
 }
 
 interface BinItemActionListener {
-    fun onItemClicked(bin: String)
+    suspend fun onItemClicked(bin: String)
 }
