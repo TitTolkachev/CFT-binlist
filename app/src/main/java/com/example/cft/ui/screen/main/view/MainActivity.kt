@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cft.databinding.ActivityMainBinding
@@ -20,6 +21,7 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 private const val PROGRESSBAR_DELAY: Long = 500
+private const val BIN_NOT_FOUND_TOAST_TEXT = "BIN not found"
 
 class MainActivity : AppCompatActivity() {
 
@@ -82,6 +84,11 @@ class MainActivity : AppCompatActivity() {
 
                 adapter.data = listOf(bin) + (adapter.data - bin)
                 viewModel.updateBinHistory(adapter.data)
+            } else {
+                Toast.makeText(
+                    this@MainActivity, BIN_NOT_FOUND_TOAST_TEXT,
+                    Toast.LENGTH_SHORT
+                ).show()
             }
             binding.progressBar.visibility = View.GONE
             window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
