@@ -25,19 +25,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.findBtn.setOnClickListener {
-            viewModel.findBinInfo(binding.textInput.text.toString(), this, adapter)
+            viewModel.findBinInfo(binding.textInput.text.toString(), adapter)
         }
         binding.clearBtn.setOnClickListener {
-            viewModel.clearBinHistory(this)
+            viewModel.clearBinHistory()
         }
 
         val linearLayoutManager = LinearLayoutManager(this)
         binding.binHistoryList.layoutManager = linearLayoutManager
 
         adapter = BinHistoryAdapter(object : BinItemActionListener {
-            override fun onItemClicked(bin: String) = viewModel.findBinInfo(bin, this@MainActivity, adapter)
+            override fun onItemClicked(bin: String) = viewModel.findBinInfo(bin, adapter)
         })
-        adapter.data = viewModel.loadBinHistory(this)
+        adapter.data = viewModel.loadBinHistory()
         binding.binHistoryList.adapter = adapter
     }
 

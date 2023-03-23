@@ -1,5 +1,7 @@
 package com.example.cft.ui.screen.info.view
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -26,17 +28,41 @@ class BinInfoActivity : AppCompatActivity() {
         initTextViews()
 
         binding.textViewCoordinates.setOnClickListener {
-            viewModel.openMaps(this)
+            openMaps(viewModel.binData.country.latitude, viewModel.binData.country.longitude)
         }
         binding.textViewBankPhone.setOnClickListener {
-            viewModel.openPhone(this)
+            openPhone(viewModel.binData.bank.phone)
         }
         binding.textViewBankUrl.setOnClickListener {
-            viewModel.openBrowser(this)
+            openBrowser(viewModel.binData.bank.url)
         }
         binding.backBtn.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
+    }
+
+    private fun openMaps(latitude: Float?, longitude: Float?) {
+        val intent = Intent(
+            Intent.ACTION_VIEW,
+            Uri.parse("geo:${latitude},${longitude}")
+        )
+        startActivity(intent)
+    }
+
+    private fun openPhone(phone: String?) {
+        val intent = Intent(
+            Intent.ACTION_DIAL,
+            Uri.parse("tel:${phone}")
+        )
+        startActivity(intent)
+    }
+
+    private fun openBrowser(url: String?) {
+        val intent = Intent(
+            Intent.ACTION_VIEW,
+            Uri.parse("https://${url}")
+        )
+        startActivity(intent)
     }
 
     private fun initTextViews() {
