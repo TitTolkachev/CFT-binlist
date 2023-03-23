@@ -11,13 +11,13 @@ import kotlinx.serialization.json.Json
 class BinInfoViewModel : ViewModel() {
 
     lateinit var binData: Bin
+    var binNumber: String? = null
 
     fun loadBinData(intent: Intent) {
         val binDataString = intent.getStringExtra("BinData")
+        binNumber = intent.getStringExtra("BinNumber")
         if (binDataString != null)
             binData = Json.decodeFromString(binDataString)
-
-        Log.d("BinData", binData.toString())
     }
 
 }

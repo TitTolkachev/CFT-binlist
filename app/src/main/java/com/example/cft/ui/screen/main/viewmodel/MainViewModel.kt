@@ -49,7 +49,9 @@ class MainViewModel : ViewModel() {
             binlistRepository.getBinlist(bin).collect { result ->
                 result.onSuccess {
                     val intent = Intent(ctx, BinInfoActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                     intent.putExtra("BinData", Json.encodeToString(it))
+                    intent.putExtra("BinNumber", bin)
                     ctx.startActivity(intent)
 
                     delay(500)

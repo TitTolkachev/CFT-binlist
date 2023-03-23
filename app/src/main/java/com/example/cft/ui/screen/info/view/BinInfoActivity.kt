@@ -24,6 +24,10 @@ class BinInfoActivity : AppCompatActivity() {
         viewModel.loadBinData(intent)
 
         initTextViews()
+
+        binding.backBtn.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
     }
 
     private fun initTextViews() {
@@ -118,6 +122,8 @@ class BinInfoActivity : AppCompatActivity() {
                 textViewBankPhone.visibility = View.GONE
             else
                 textViewBankPhone.text = viewModel.binData.bank.phone
+
+            textViewBinNumber.text = viewModel.binNumber
         }
     }
 }
