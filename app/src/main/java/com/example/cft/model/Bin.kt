@@ -2,13 +2,13 @@ package com.example.cft.model
 
 @kotlinx.serialization.Serializable
 data class Bin(
-    val number: BinNumber? = null,
+    val number: BinNumber = BinNumber(),
     val scheme: String? = null,
     val type: String? = null,
     val brand: String? = null,
     val prepaid: Boolean? = null,
-    val country: BinCountry? = null,
-    val bank: BinBank? = null
+    val country: BinCountry = BinCountry(),
+    val bank: BinBank = BinBank()
 )
 
 @kotlinx.serialization.Serializable

@@ -7,9 +7,10 @@ import com.example.cft.model.Bin
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 
-private lateinit var binData: Bin
 
 class BinInfoViewModel : ViewModel() {
+
+    lateinit var binData: Bin
 
     fun loadBinData(intent: Intent) {
         val binDataString = intent.getStringExtra("BinData")

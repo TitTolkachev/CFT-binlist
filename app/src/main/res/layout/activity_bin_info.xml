@@ -10,8 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
+        android:overScrollMode="never"
         app:layout_constraintBottom_toTopOf="@+id/textView14"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,13 +18,16 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="30dp"
+            android:paddingVertical="40dp">
 
             <TextView
-                android:id="@+id/textViewLabel1"
+                android:id="@+id/textViewLabelScheme"
+                style="@style/TextViewLabelStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="44dp"
                 android:text="SCHEME / NETWORK"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -33,7 +35,8 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textViewLabel2"
+                android:id="@+id/textViewLabelBrand"
+                style="@style/TextViewLabelStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -41,10 +44,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewScheme" />
 
             <TextView
-                android:id="@+id/textViewLabel3"
+                android:id="@+id/textViewLabelCardNumber"
+                style="@style/TextViewLabelStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -52,39 +56,43 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewBrand" />
 
             <TextView
-                android:id="@+id/textViewLabel4"
+                android:id="@+id/textViewSubLabelCardNumberLength"
+                style="@style/TextViewSubLabelStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="LENGTH"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewLabel3" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewLabelCardNumber" />
 
             <TextView
-                android:id="@+id/textViewLabel5"
+                android:id="@+id/textViewSubLabelCardNumberLuhn"
+                style="@style/TextViewSubLabelStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
                 android:text="LUHN"
-                app:layout_constraintStart_toEndOf="@+id/textViewLabel4"
-                app:layout_constraintTop_toBottomOf="@+id/textViewLabel3" />
+                app:layout_constraintStart_toEndOf="@+id/textViewSubLabelCardNumberLength"
+                app:layout_constraintTop_toBottomOf="@+id/textViewLabelCardNumber" />
 
             <TextView
-                android:id="@+id/textViewLabel6"
+                android:id="@+id/textViewLabelType"
+                style="@style/TextViewLabelStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:text="TYPE"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textView13" />
+                app:layout_constraintTop_toBottomOf="@id/textViewNumberLength" />
 
             <TextView
-                android:id="@+id/textViewLabel7"
+                android:id="@+id/textViewLabelPrepaid"
+                style="@style/TextViewLabelStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -92,10 +100,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewType" />
 
             <TextView
-                android:id="@+id/textViewLabel8"
+                android:id="@+id/textViewLabelCoutry"
+                style="@style/TextViewLabelStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -103,10 +112,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView17" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewPrepaid" />
 
             <TextView
-                android:id="@+id/textViewLabel11"
+                android:id="@+id/textViewLabelBank"
+                style="@style/TextViewLabelStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -114,116 +124,129 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView20" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewCoordinates" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/textViewScheme"
+                style="@style/TextViewBinInfoItemStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="TextView"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewLabel1" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewLabelScheme" />
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/textViewBrand"
+                style="@style/TextViewBinInfoItemStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="TextView"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewLabel2" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewLabelBrand" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/textViewNumberLength"
+                style="@style/TextViewBinInfoItemStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="TextView"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewLabel4" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewSubLabelCardNumberLength" />
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/textViewNumberLuhn"
+                style="@style/TextViewBinInfoItemStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="TextView"
-                app:layout_constraintStart_toStartOf="@+id/textViewLabel5"
-                app:layout_constraintTop_toBottomOf="@+id/textViewLabel5" />
+                app:layout_constraintStart_toStartOf="@+id/textViewSubLabelCardNumberLuhn"
+                app:layout_constraintTop_toBottomOf="@+id/textViewSubLabelCardNumberLuhn" />
 
             <TextView
-                android:id="@+id/textView16"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="TextView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewLabel6" />
-
-            <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/textViewType"
+                style="@style/TextViewBinInfoItemStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="TextView"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewLabel7" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewLabelType" />
 
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/textViewPrepaid"
+                style="@style/TextViewBinInfoItemStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="TextView"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewLabel8" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewLabelPrepaid" />
 
             <TextView
-                android:id="@+id/textView19"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
-                android:text="TextView"
-                app:layout_constraintStart_toEndOf="@+id/textView18"
-                app:layout_constraintTop_toBottomOf="@+id/textViewLabel8" />
-
-            <TextView
-                android:id="@+id/textView20"
+                android:id="@+id/textViewEmoji"
+                style="@style/TextViewBinInfoItemStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="TextView"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView19" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewLabelCoutry" />
 
             <TextView
-                android:id="@+id/textView21"
+                android:id="@+id/textViewCountry"
+                style="@style/TextViewBinInfoItemStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:text="TextView"
+                app:layout_constraintStart_toEndOf="@+id/textViewEmoji"
+                app:layout_constraintTop_toBottomOf="@+id/textViewLabelCoutry" />
+
+            <TextView
+                android:id="@+id/textViewCoordinates"
+                style="@style/TextViewBinInfoItemStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="TextView"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewCountry" />
+
+            <TextView
+                android:id="@+id/textViewBankName"
+                style="@style/TextViewBinInfoItemStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="TextView"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewLabel11" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewLabelBank" />
 
             <TextView
-                android:id="@+id/textView22"
+                android:id="@+id/textViewBankUrl"
+                style="@style/TextViewBinInfoItemStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="TextView"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView21" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewBankName" />
 
             <TextView
-                android:id="@+id/textView23"
+                android:id="@+id/textViewBankPhone"
+                style="@style/TextViewBinInfoItemStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="TextView"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView22" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewBankUrl" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
