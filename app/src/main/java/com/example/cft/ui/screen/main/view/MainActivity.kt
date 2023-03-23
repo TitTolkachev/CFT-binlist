@@ -24,8 +24,11 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        binding.button.setOnClickListener {
+        binding.findBtn.setOnClickListener {
             viewModel.findBinInfo(binding.textInput.text.toString(), this, adapter)
+        }
+        binding.clearBtn.setOnClickListener {
+            viewModel.clearBinHistory(this)
         }
 
         val linearLayoutManager = LinearLayoutManager(this)

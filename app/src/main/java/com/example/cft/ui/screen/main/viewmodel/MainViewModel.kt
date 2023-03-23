@@ -40,6 +40,10 @@ class MainViewModel : ViewModel() {
         editor.apply()
     }
 
+    fun clearBinHistory(ctx: Context) {
+        updateBinHistory(ctx, listOf())
+    }
+
     fun findBinInfo(bin: String, ctx: Context, adapter: BinHistoryAdapter) {
         viewModelScope.launch(Dispatchers.IO) {
             binlistRepository.getBinlist(bin).collect { result ->
