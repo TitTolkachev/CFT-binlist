@@ -25,6 +25,15 @@ class BinInfoActivity : AppCompatActivity() {
 
         initTextViews()
 
+        binding.textViewCoordinates.setOnClickListener {
+            viewModel.openMaps(this)
+        }
+        binding.textViewBankPhone.setOnClickListener {
+            viewModel.openPhone(this)
+        }
+        binding.textViewBankUrl.setOnClickListener {
+            viewModel.openBrowser(this)
+        }
         binding.backBtn.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
