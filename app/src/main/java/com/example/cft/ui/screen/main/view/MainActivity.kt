@@ -58,7 +58,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
-        adapter.data = viewModel.loadBinHistory()
         binding.binHistoryList.adapter = adapter
     }
 
@@ -82,8 +81,7 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("BinNumber", bin)
                 startActivity(intent)
 
-                adapter.data = listOf(bin) + (adapter.data - bin)
-                viewModel.updateBinHistory(adapter.data)
+                viewModel.updateBinHistory(listOf(bin) + (adapter.data - bin))
             } else {
                 Toast.makeText(
                     this@MainActivity, BIN_NOT_FOUND_TOAST_TEXT,
@@ -100,5 +98,7 @@ class MainActivity : AppCompatActivity() {
 
         overridePendingTransition(0, 0)
         binding.textInput.text.clear()
+
+        adapter.data = viewModel.loadBinHistory()
     }
 }
