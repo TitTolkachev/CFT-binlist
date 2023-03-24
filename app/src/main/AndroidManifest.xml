@@ -12,15 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CFT"
         android:usesCleartextTraffic="true"
-        android:configChanges="orientation"
-        android:screenOrientation="portrait"
         tools:targetApi="31">
         <activity
             android:name=".ui.screen.info.view.BinInfoActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".ui.screen.main.view.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
