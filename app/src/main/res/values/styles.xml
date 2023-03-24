@@ -15,4 +15,9 @@
         <item name="android:textColor">#676767</item>
         <item name="android:typeface">monospace</item>
     </style>
+    <style name="TextViewLinkStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#1F1F1F</item>
+        <item name="android:typeface">monospace</item>
+    </style>
 </resources>

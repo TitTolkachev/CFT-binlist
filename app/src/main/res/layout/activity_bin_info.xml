@@ -227,7 +227,7 @@
 
             <TextView
                 android:id="@+id/textViewCoordinates"
-                style="@style/TextViewBinInfoItemStyle"
+                style="@style/TextViewLinkStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -248,7 +248,7 @@
 
             <TextView
                 android:id="@+id/textViewBankUrl"
-                style="@style/TextViewBinInfoItemStyle"
+                style="@style/TextViewLinkStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -258,7 +258,7 @@
 
             <TextView
                 android:id="@+id/textViewBankPhone"
-                style="@style/TextViewBinInfoItemStyle"
+                style="@style/TextViewLinkStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"

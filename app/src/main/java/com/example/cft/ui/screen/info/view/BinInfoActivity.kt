@@ -4,6 +4,8 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.style.UnderlineSpan
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.example.cft.databinding.ActivityBinInfoBinding
@@ -71,8 +73,8 @@ class BinInfoActivity : AppCompatActivity() {
         if (viewModel.binData.country.latitude != null
             && viewModel.binData.country.longitude != null
         )
-            coordinates = "(latitude: ${viewModel.binData.country.latitude.toString()}" +
-                    ", longitude: ${viewModel.binData.country.longitude.toString()})"
+            coordinates = "latitude: ${viewModel.binData.country.latitude.toString()}\n" +
+                    "longitude: ${viewModel.binData.country.longitude.toString()}"
 
         var bankName: String? = null
         if (viewModel.binData.bank.name != null) {
@@ -144,8 +146,11 @@ class BinInfoActivity : AppCompatActivity() {
                 textViewCountry.text = viewModel.binData.country.name
             if (coordinates == null)
                 textViewCoordinates.visibility = View.GONE
-            else
-                textViewCoordinates.text = coordinates
+            else {
+                val spannableText = SpannableString(coordinates)
+                spannableText.setSpan(UnderlineSpan(), 0, spannableText.length, 0)
+                textViewCoordinates.text = spannableText
+            }
             if (bankName == null
                 && viewModel.binData.bank.url == null
                 && viewModel.binData.bank.phone == null
@@ -157,12 +162,18 @@ class BinInfoActivity : AppCompatActivity() {
                 textViewBankName.text = bankName
             if (viewModel.binData.bank.url == null)
                 textViewBankUrl.visibility = View.GONE
-            else
-                textViewBankUrl.text = viewModel.binData.bank.url
+            else {
+                val spannableText = SpannableString(viewModel.binData.bank.url)
+                spannableText.setSpan(UnderlineSpan(), 0, spannableText.length, 0)
+                textViewBankUrl.text = spannableText
+            }
             if (viewModel.binData.bank.phone == null)
                 textViewBankPhone.visibility = View.GONE
-            else
-                textViewBankPhone.text = viewModel.binData.bank.phone
+            else {
+                val spannableText = SpannableString(viewModel.binData.bank.phone)
+                spannableText.setSpan(UnderlineSpan(), 0, spannableText.length, 0)
+                textViewBankPhone.text = spannableText
+            }
 
             textViewBinNumber.text = viewModel.binNumber
         }
