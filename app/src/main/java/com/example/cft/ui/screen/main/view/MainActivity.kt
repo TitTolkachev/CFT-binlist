@@ -87,9 +87,9 @@ class MainActivity : AppCompatActivity() {
                     this@MainActivity, BIN_NOT_FOUND_TOAST_TEXT,
                     Toast.LENGTH_SHORT
                 ).show()
+                binding.progressBar.visibility = View.GONE
+                window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
             }
-            binding.progressBar.visibility = View.GONE
-            window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
         }
     }
 
@@ -98,6 +98,8 @@ class MainActivity : AppCompatActivity() {
 
         overridePendingTransition(0, 0)
         binding.textInput.text.clear()
+        binding.progressBar.visibility = View.GONE
+        window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
 
         adapter.data = viewModel.loadBinHistory()
     }
